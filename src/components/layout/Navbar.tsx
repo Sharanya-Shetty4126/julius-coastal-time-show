@@ -12,6 +12,7 @@ export const Navbar = () => {
           <Link to="/about" className="hover:text-stone-900 transition-colors [&.active]:text-stone-900 [&.active]:font-medium">About</Link>
           <Link to="/menu" className="hover:text-stone-900 transition-colors [&.active]:text-stone-900 [&.active]:font-medium">Menu</Link>
           <Link to="/wine-bar" className="hover:text-stone-900 transition-colors [&.active]:text-stone-900 [&.active]:font-medium">Wine & Bar</Link>
+          <Link to="/gallery" className="hover:text-stone-900 transition-colors [&.active]:text-stone-900 [&.active]:font-medium">Gallery</Link>
           <Link to="/visit" className="hover:text-stone-900 transition-colors [&.active]:text-stone-900 [&.active]:font-medium">Visit</Link>
           <Link to="/contact" className="hover:text-stone-900 transition-colors [&.active]:text-stone-900 [&.active]:font-medium">Contact</Link>
         </div>
