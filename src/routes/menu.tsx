@@ -1,46 +1,40 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SITE_CONTENT } from "../lib/content";
+import { JuliusLayout, Meta, PageHero } from "@/components/JuliusLayout";
+import seafood from "@/assets/julius-seafood.jpg";
 
 export const Route = createFileRoute("/menu")({
+  head:()=>({meta:Meta({title:"Menu | JULIUS Honnavar",description:"Explore seafood, coastal specialties, mains and desserts at JULIUS."})}),
   component: Menu,
 });
 
 function Menu() {
   return (
-    <div className="max-w-4xl mx-auto py-24 px-6">
-      <div className="text-center mb-20">
-        <span className="text-xs uppercase tracking-[0.3em] text-stone-400 mb-6 block">Culinary Arts</span>
-        <h1 className="text-5xl font-serif text-stone-900">The Tides & The Terroir</h1>
-      </div>
-      
+    <JuliusLayout><PageHero eyebrow="The menu" title="The day’s catch, thoughtfully served." intro="A seafood-forward menu built around freshness, local character and food that belongs at the centre of the table." image={seafood}/><section className="menu-wrap">
       {SITE_CONTENT.menu.sections.map((section, idx) => (
-        <div key={idx} className="mb-20">
-          <h2 className="text-2xl font-serif border-b border-stone-200 pb-4 mb-10 text-stone-800 tracking-tight">
+        <div key={idx} className="menu-section">
+          <h2 className="font-display text-4xl md:text-5xl">
             {section.title}
           </h2>
-          <div className="space-y-10">
+          <div className="mt-6">
             {section.items.map((item, i) => (
-              <div key={i} className="group">
-                <div className="flex justify-between items-baseline mb-2">
-                  <h3 className="text-lg font-medium text-stone-900 group-hover:text-stone-600 transition-colors italic">
+              <div key={i} className="menu-item">
+                <div><h3>
                     {item.name}
-                  </h3>
-                  <span className="text-stone-400 text-sm">₹{item.price}</span>
-                </div>
-                <p className="text-stone-500 text-sm max-w-xl leading-relaxed">
+                  </h3><p>
                   {item.description}
-                </p>
+                </p></div><span>₹{item.price}</span>
               </div>
             ))}
           </div>
         </div>
       ))}
       
-      <div className="bg-stone-50 p-8 text-center border border-stone-100">
-        <p className="text-stone-400 text-xs uppercase tracking-widest italic">
+      <div className="border border-border p-8 text-center">
+        <p className="eyebrow text-muted-foreground">
           All prices are in INR. Government taxes as applicable.
         </p>
       </div>
-    </div>
+    </section></JuliusLayout>
   );
 }

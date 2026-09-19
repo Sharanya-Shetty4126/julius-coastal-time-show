@@ -1,0 +1,5 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { JuliusLayout, Meta, PageHero } from "@/components/JuliusLayout";
+import dining from "@/assets/julius-dining.jpg";
+export const Route=createFileRoute("/guest-notes")({head:()=>({meta:Meta({title:"Guest Notes | JULIUS",description:"Memories from lunches, family dinners and coastal evenings at JULIUS."})}),component:GuestNotes});
+function GuestNotes(){const notes=[["We came for dinner and stayed until the tide had changed.","A table by the window"],["The prawn ghee roast deserves its own journey to Honnavar.","Guest note, 8:42 PM"],["Three generations at one table. Everyone found a favourite.","Sunday lunch"],["A beautiful pause between the river and the road home.","From Bengaluru"]];return <JuliusLayout><PageHero eyebrow="Guest notes" title="Things people left with us." intro="Small memories from long lunches, family dinners, first visits and evenings that became stories." image={dining}/><section className="notes-board">{notes.map(([note,by],i)=><blockquote key={note} className={`note note-${i+1}`}><p>“{note}”</p><cite>— {by}</cite></blockquote>)}</section></JuliusLayout>}
