@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as GuestNotesRouteImport } from './routes/guest-notes'
 import { Route as MenuRouteImport } from './routes/menu'
 import { Route as VisitRouteImport } from './routes/visit'
 import { Route as WineBarRouteImport } from './routes/wine-bar'
@@ -37,6 +38,11 @@ const GalleryRoute = GalleryRouteImport.update({
   path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GuestNotesRoute = GuestNotesRouteImport.update({
+  id: '/guest-notes',
+  path: '/guest-notes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MenuRoute = MenuRouteImport.update({
   id: '/menu',
   path: '/menu',
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
+  '/guest-notes': typeof GuestNotesRoute
   '/menu': typeof MenuRoute
   '/visit': typeof VisitRoute
   '/wine-bar': typeof WineBarRoute
@@ -67,6 +74,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
+  '/guest-notes': typeof GuestNotesRoute
   '/menu': typeof MenuRoute
   '/visit': typeof VisitRoute
   '/wine-bar': typeof WineBarRoute
@@ -77,6 +85,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
+  '/guest-notes': typeof GuestNotesRoute
   '/menu': typeof MenuRoute
   '/visit': typeof VisitRoute
   '/wine-bar': typeof WineBarRoute
@@ -84,16 +93,31 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/about' | '/contact' | '/gallery' | '/menu' | '/visit' | '/wine-bar'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/gallery'
+    | '/guest-notes'
+    | '/menu'
+    | '/visit'
+    | '/wine-bar'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/about' | '/contact' | '/gallery' | '/menu' | '/visit' | '/wine-bar'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/gallery'
+    | '/guest-notes'
+    | '/menu'
+    | '/visit'
+    | '/wine-bar'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/contact'
     | '/gallery'
+    | '/guest-notes'
     | '/menu'
     | '/visit'
     | '/wine-bar'
@@ -104,6 +128,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   GalleryRoute: typeof GalleryRoute
+  GuestNotesRoute: typeof GuestNotesRoute
   MenuRoute: typeof MenuRoute
   VisitRoute: typeof VisitRoute
   WineBarRoute: typeof WineBarRoute
@@ -139,6 +164,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guest-notes': {
+      id: '/guest-notes'
+      path: '/guest-notes'
+      fullPath: '/guest-notes'
+      preLoaderRoute: typeof GuestNotesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/menu': {
       id: '/menu'
       path: '/menu'
@@ -168,6 +200,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   GalleryRoute: GalleryRoute,
+  GuestNotesRoute: GuestNotesRoute,
   MenuRoute: MenuRoute,
   VisitRoute: VisitRoute,
   WineBarRoute: WineBarRoute,

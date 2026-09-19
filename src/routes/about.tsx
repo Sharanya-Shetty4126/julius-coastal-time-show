@@ -1,26 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SITE_CONTENT } from "../lib/content";
+import { JuliusLayout, Meta, PageHero } from "@/components/JuliusLayout";
+import dining from "@/assets/julius-dining.jpg"; import coast from "@/assets/julius-honnavar.jpg";
 
 export const Route = createFileRoute("/about")({
+  head:()=>({meta:Meta({title:"Our Story | JULIUS Honnavar",description:"The coastal influence, food philosophy and warm hospitality behind JULIUS."})}),
   component: About,
 });
 
 function About() {
-  return (
-    <div className="max-w-4xl mx-auto py-24 px-6">
-      <span className="text-xs uppercase tracking-[0.3em] text-stone-400 mb-6 block">Our Story</span>
-      <h1 className="text-5xl font-serif text-stone-900 mb-12">{SITE_CONTENT.about.title}</h1>
-      <div className="prose prose-stone lg:prose-xl">
-        <p className="text-xl text-stone-800 leading-relaxed italic mb-8">
-          {SITE_CONTENT.about.philosophy}
-        </p>
-        <p className="text-stone-600 leading-relaxed mb-6">
-          {SITE_CONTENT.about.editorial}
-        </p>
-        <div className="mt-16 aspect-video bg-stone-100 flex items-center justify-center text-stone-300 italic">
-          [Visual: The confluence of Sharavati River and the Arabian Sea]
-        </div>
-      </div>
-    </div>
-  );
+  return <JuliusLayout><PageHero eyebrow="Our story" title="Rooted here. Open to the world." intro="JULIUS is imagined from the textures of Honnavar—river, sea, spice, rain and the natural generosity of a coastal table." image={dining}/><section className="section-grid"><p className="eyebrow">The idea</p><div><h2 className="section-title">A restaurant with the coast in its bones.</h2><p className="body-copy mt-8">The food culture of Coastal Karnataka is abundant and exacting: fish chosen with care, spice layered rather than shouted, and hospitality that never feels performed. JULIUS translates that spirit into a contemporary restaurant and bar—refined, relaxed and made for every generation at the table.</p></div></section><section className="image-statement"><img src={coast} alt="Honnavar backwaters and coast" loading="lazy"/><div className="hero-shade"/><h2>Honnavar is not a backdrop.<br/>It is the beginning.</h2></section></JuliusLayout>;
 }
