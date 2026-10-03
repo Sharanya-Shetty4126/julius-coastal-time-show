@@ -1,551 +1,207 @@
-# Coastal Time
+# JULIUS — Coastal Time Show
+
+A premium, cinematic restaurant brand website for JULIUS, a coastal dining experience inspired by Honnavar and the Arabian Sea. The project is built as a multi-page React app with a time-aware visual theme that shifts between morning, daytime, sunset, and night atmospheres.
+
+## Overview
+
+This project showcases a luxury seafood and hospitality brand with:
+
+- immersive coastal visuals
+- multi-page navigation
+- responsive editorial layout
+- time-based atmosphere changes
+- strong restaurant branding and storytelling
+- premium restaurant menu and gallery experience
+
+The website is designed to feel more like a boutique hospitality experience than a standard restaurant template.
+
+## Tech Stack
+
+- React 19
+- TypeScript
+- Vite
+- TanStack Router / TanStack Start
+- TanStack Query
+- Tailwind CSS v4
+- shadcn-style UI primitives
+- Radix UI components
+- Lucide React icons
+- ESLint + Prettier
+
+## Project Structure
+
+```text
+julius-coastal-time-show/
+├── public/
+│   ├── favicon.png
+│   └── robots.txt
+├── src/
+│   ├── assets/
+│   │   ├── *.jpg
+│   │   └── *.png.asset.json
+│   ├── components/
+│   │   ├── JuliusLayout.tsx
+│   │   └── ui/
+│   ├── lib/
+│   │   ├── content.ts
+│   │   └── lovable-error-reporting.ts
+│   ├── routes/
+│   │   ├── __root.tsx
+│   │   ├── about.tsx
+│   │   ├── contact.tsx
+│   │   ├── gallery.tsx
+│   │   ├── guest-notes.tsx
+│   │   ├── index.tsx
+│   │   ├── menu.tsx
+│   │   ├── visit.tsx
+│   │   ├── wine-bar.tsx
+│   │   └── README.md
+│   ├── router.tsx
+│   ├── server.ts
+│   ├── start.ts
+│   ├── styles.css
+│   └── routeTree.gen.ts
+├── AGENTS.md
+├── components.json
+├── eslint.config.js
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+├── bun.lock
+├── .prettierrc
+├── .prettierignore
+├── .gitignore
+├── roadmap.md
+└── README.md
+```
+
+## Features
+
+### 1. Time-aware experience
+The homepage detects the visitor's local time and changes the visual atmosphere between:
+
+- Morning
+- Day
+- Sunset / Evening
+- Night
+
+### 2. Multi-page restaurant website
+Navigation includes:
+
+- Home
+- About
+- Menu
+- Wine & Bar
+- Gallery
+- Visit
+- Guest Notes
+- Contact
+
+### 3. Premium design language
+The project uses:
 
-ULIUS — PREMIUM COASTAL RESTAURANT WEBSITE
+- deep blue and ocean-inspired palette
+- luxurious serif typography
+- editorial room-like spacing
+- coastal hospitality storytelling
+- smooth transitions and atmospheric motion
 
-Create a visually distinctive, premium website for JULIUS, a coastal restaurant based in Honnavar, Coastal Karnataka.
+### 4. Content-driven structure
+The restaurant content is centralized in `src/lib/content.ts` to make it easy to modify:
 
-The goal is to create a website that feels cinematic, immersive, elegant, memorable, and strongly connected to the coast. It should feel like a carefully designed brand experience rather than a conventional restaurant template.
+- brand information
+- menu items
+- wine bar details
+- attractions and travel info
+- guest note guidance
+- contact placeholders
 
-CORE IDEA — A WEBSITE THAT CHANGES WITH THE TIME OF DAY
+## Getting Started
 
-Make the time-aware coastal atmosphere one of the defining features of the website.
+### Prerequisites
 
-Detect the visitor's local time and dynamically change the visual atmosphere.
+- Node.js 18+ recommended
+- npm or Bun
 
-Morning
+### Installation
 
-Create a beautiful coastal sunrise experience:
+```bash
+npm install
+```
 
- sunrise imagery
+or
 
- warm soft lighting
+```bash
+bun install
+```
 
- gentle ocean movement
+### Run in development mode
 
- subtle animated waves
-
- soft sky/cloud movement
-
- peaceful morning atmosphere
-
- warm coastal colors
-
-Afternoon
-
-Create a bright, energetic coastal atmosphere:
-
- blue sky
-
- bright ocean
-
- sunlight
-
- subtle moving waves
-
- gentle environmental animation
-
- fresh daylight colors
-
-Sunset / Evening
-
-Make this especially cinematic:
-
- golden sunset
-
- orange and amber light
-
- moving ocean
-
- subtle atmospheric movement
-
- gradual lighting changes
-
- warm, luxurious restaurant atmosphere
-
-Night
-
-Create an elegant moonlit coastal experience:
-
- deep navy ocean
-
- moonlight
-
- subtle stars
-
- gentle moving waves
-
- atmospheric night animation
-
- darker, sophisticated colors
-
- subtle wine/burgundy accents
-
-The transition between these visual states should feel intentional and polished.
-
-Animation is an important part of the concept.
-
-Use tasteful animation for:
-
- ocean waves
-
- water movement
-
- clouds
-
- sunlight
-
- sunset atmosphere
-
- moon/night atmosphere
-
- image transitions
-
- page transitions
-
- text reveals
-
- hover interactions
-
- subtle environmental effects
-
-Do not make the animations chaotic or distracting. The goal is cinematic, natural movement.
-
-WEBSITE STRUCTURE
-
-Make this a multi-page website.
-
-The primary navigation should be:
-
-HOME · ABOUT · MENU · WINE & BAR · GALLERY · VISIT · GUEST NOTES · CONTACT
-
-Do not put the entire website into one giant scrolling homepage.
-
-Each navigation item should lead to its own dedicated page.
-
-Individual pages can scroll naturally when they contain enough content.
-
-HOME
-
-Create a powerful cinematic first impression.
-
-The homepage should immediately communicate:
-
-JULIUS + COAST + FOOD + HOSPITALITY
-
-Include:
-
- JULIUS logo
-
- large cinematic coastal/restaurant visual
-
- time-aware animated environment
-
- short brand introduction
-
- elegant navigation
-
- carefully designed buttons leading to the other pages
-
-Possible CTAs:
-
-Discover JULIUS
-Explore Menu
-Wine & Bar
-Visit Us
-
-Keep the homepage focused and visually powerful rather than filling it with every piece of information.
-
-ABOUT
-
-Tell the story of JULIUS.
-
-Include:
-
- the restaurant's story
-
- Honnavar
-
- Coastal Karnataka influence
-
- coastal food culture
-
- food philosophy
-
- hospitality
-
- family dining
-
- restaurant atmosphere
-
-Use beautiful photography of the actual restaurant interior and exterior when available.
-
-Make this page feel editorial and story-driven rather than like a collection of generic information cards.
-
-MENU
-
-Create a dedicated restaurant menu experience.
-
-Include:
-
- starters
-
- mains
-
- seafood
-
- coastal specialties
-
- desserts
-
- beverages
-
- descriptions
-
- prices
-
- food photography where available
-
-Make the menu elegant and easy to read.
-
-It should feel like a premium restaurant menu, not an online shopping interface.
-
-WINE & BAR
-
-Give Wine & Bar its own identity within the JULIUS brand.
-
-Create a darker, sophisticated atmosphere using:
-
- wine
-
- cocktails
-
- drinks
-
- bottles
-
- bar photography
-
- deep navy
-
- charcoal
-
- subtle burgundy
-
- warm lighting
-
- elegant typography
-
-This page should feel especially atmospheric during the evening/night time state.
-
-GALLERY
-
-Create a highly visual editorial gallery.
-
-Show:
-
- restaurant interior
-
- restaurant exterior
-
- food
-
- seafood
-
- drinks
-
- wine
-
- bar
-
- family dining
-
- events
-
- coastal surroundings
-
- memorable moments
-
-Avoid a boring grid where every image looks identical.
-
-Use varied image sizes, compositions, large photographs, immersive sections, and subtle interactions.
-
-The Gallery should make visitors feel like they are experiencing JULIUS through photographs.
-
-VISIT
-
-Create a dedicated page showcasing Honnavar and nearby coastal attractions.
-
-Include relevant places with:
-
- beautiful photographs
-
- place names
-
- short descriptions
-
- distance/travel information where appropriate
-
-The page should connect the restaurant with the surrounding coastal experience.
-
-The feeling should be:
-
-Explore the coast → Experience Honnavar → Discover JULIUS
-
-Keep it visually editorial rather than making it look like a generic tourism website.
-
-GUEST NOTES
-
-Create a unique guest-review experience.
-
-Do not use conventional star-rating review cards.
-
-Instead, design the reviews as:
-
- handwritten notes
-
- sticky notes
-
- little paper memories
-
- journal entries
-
- pinned guest messages
-
- personal notes
-
-Make it cute, warm and personal but still premium and sophisticated.
-
-The notes should feel like memories left behind by people who visited JULIUS.
-
-Allow the collection to continue naturally as more guest notes are added.
-
-Use subtle interactions/animations when users interact with the notes.
-
-CONTACT
-
-Create a clean but elegant contact page containing placeholders for:
-
- address
-
- phone
-
- email
-
- opening hours
-
- map/location
-
- social media
-
-Also include a dedicated Collaborations area for:
-
- food creators
-
- travel creators
-
- photographers
-
- bloggers
-
- influencers
-
- events
-
- brand collaborations
-
-Make this feel professional and inviting.
-
-VISUAL IDENTITY
-
-The visual language should be inspired by:
-
- Coastal Karnataka
-
- Honnavar
-
- Arabian Sea
-
- seafood
-
- coastal culture
-
- warm hospitality
-
- wine
-
- evening dining
-
- beach landscapes
-
- local atmosphere
-
-Use a sophisticated palette built around:
-
- deep ocean blue
-
- navy
-
- dark teal
-
- charcoal
-
- warm sand
-
- muted gold
-
- subtle burgundy/wine tones
-
-Avoid making it look like a generic tropical resort.
-
-The coastal identity should feel rich, authentic and sophisticated.
-
-PHOTOGRAPHY
-
-Photography should be a major part of the design.
-
-Use different imagery for different purposes:
-
-Coastal imagery → time-aware environmental atmosphere
-
-Restaurant photography → About/Gallery
-
-Food photography → Menu/Gallery
-
-Wine and drink photography → Wine & Bar
-
-Destination photography → Visit
-
-Do not repeatedly use the same beach photograph everywhere.
-
-Every image should have a reason for being there.
-
-TYPOGRAPHY & BRANDING
-
-Make JULIUS visually strong.
-
-Use elegant typography with a refined editorial feeling.
-
-The logo should remain recognizable and consistent throughout the website.
-
-Create a strong hierarchy between:
-
- JULIUS
-
- page titles
-
- section headings
-
- descriptions
-
- buttons
-
- supporting text
-
-Avoid generic startup/SaaS typography and generic restaurant-template styling.
-
-INTERACTIONS
-
-Make the website feel alive.
-
-Use:
-
- smooth page transitions
-
- cinematic image reveals
-
- elegant hover effects
-
- animated typography
-
- subtle parallax where appropriate
-
- environmental movement
-
- animated ocean
-
- time-based visual changes
-
- interactive gallery
-
- interactive guest notes
-
-Keep interactions polished and intentional.
-
-The user should discover little details as they explore.
-
-RESPONSIVE DESIGN
-
-Design specifically for:
-
- desktop
-
- laptop
-
- tablet
-
- mobile
-
-The mobile version should preserve the cinematic JULIUS experience rather than simply shrinking the desktop layout.
-
-Animations should remain smooth and appropriate on mobile.
-
-PERFORMANCE
-
-The website should be visually ambitious while remaining performant.
-
-Use:
-
- optimized images
-
- lazy loading
-
- efficient animations
-
- responsive image sizes
-
- smooth transitions
-
- reusable components
-
-Respect reduced-motion accessibility preferences without removing the core experience for normal users.
-
-FINAL FEEL
-
-The finished website should feel like:
-
-A coastal evening.
-
-A beautiful restaurant.
-
-A place worth visiting.
-
-A brand with personality.
-
-A website people remember after closing the tab.
-
-Do not make it look like a standard restaurant website with a beach background.
-
-Make the time-aware animated coastal atmosphere, JULIUS branding, photography, typography, storytelling, and page transitions work together as one cohesive experience.
-
-The result should feel premium, cinematic, coastal, modern, warm, sophisticated, immersive, and genuinely distinctive...the first photo is logo  the rest are for resference how colur should be like acc to the costal theme for u refernece
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/bd9554b9-c05c-45e6-a255-d813ff424fb4).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+```bash
 npm run dev
 ```
+
+The app will start in Vite development mode and be available locally in the browser.
+
+### Build for production
+
+```bash
+npm run build
+```
+
+### Preview production build
+
+```bash
+npm run preview
+```
+
+## Available Scripts
+
+```json
+{
+  "dev": "vite dev",
+  "build": "vite build",
+  "build:dev": "vite build --mode development",
+  "preview": "vite preview",
+  "lint": "eslint .",
+  "format": "prettier --write ."
+}
+```
+
+## Key Files to Edit
+
+### Content updates
+- `src/lib/content.ts` — menu, contact info, brand text, visit content
+
+### Layout and page shell
+- `src/components/JuliusLayout.tsx` — navigation, footer, shared layout
+- `src/routes/__root.tsx` — app shell, SEO metadata, fonts, favicon
+
+### Styling and theming
+- `src/styles.css` — theme tokens, fonts, helper classes, motion styles
+
+### Page content
+- `src/routes/*.tsx` — each route for the website sections
+
+## Notes
+
+- This project is a front-end marketing site; there is no backend or database configured.
+- It is designed for brand representation and visual presentation rather than transactional features.
+- Some contact items are currently placeholders and should be replaced with real business details.
+- Images in `src/assets` are part of the brand experience and can be updated to match real restaurant photography.
+
+## License
+
+This project does not currently include a custom license file. If you intend to publish or distribute it, please add an appropriate license before deployment.
+
+## Recommended Next Steps
+
+1. Replace placeholder contact details in `src/lib/content.ts`
+2. Add real restaurant photos and branding assets
+3. Connect a form or booking integration for contact or reservations
+4. Optimize for production deployment (Vercel, Netlify, or other static hosting)
+5. Add analytics and SEO improvements if the site is going live
+
+## Summary
+
+JULIUS is a visually rich coastal restaurant website built with modern React tooling, custom theming, and polished route-based page structure. It is well-suited for a premium hospitality brand and is easy to customize for real-world restaurant content and deployment.
