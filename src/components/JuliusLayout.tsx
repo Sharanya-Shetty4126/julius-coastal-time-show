@@ -1,7 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
-import logo from "@/assets/julius-logo.png.asset.json";
+import logo from "@/assets/julius-logo.png";
 import { Button } from "@/components/ui/button";
 
 const links = [["HOME","/"],["ABOUT","/about"],["MENU","/menu"],["WINE & BAR","/wine-bar"],["GALLERY","/gallery"],["VISIT","/visit"],["GUEST NOTES","/guest-notes"],["CONTACT","/contact"]] as const;
@@ -13,7 +13,7 @@ export function JuliusLayout({children}:{children:ReactNode}) {
   return <div className="min-h-screen bg-background text-foreground">
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-20 max-w-screen-2xl items-center justify-between px-5 md:px-10">
-        <Link to="/" className="flex items-center gap-3" aria-label="JULIUS home"><img src={logo.url} alt="" className="h-14 w-14 object-contain"/><span className="font-display text-2xl">JULIUS</span></Link>
+        <Link to="/" className="flex items-center gap-3" aria-label="JULIUS home"><img src={logo} alt="" className="h-14 w-14 object-contain"/><span className="font-display text-2xl">JULIUS</span></Link>
         <nav className="hidden items-center gap-6 xl:flex" aria-label="Main navigation">{links.map(([label,to])=><Link key={to} to={to} className={`nav-link ${path===to?"nav-active":""}`}>{label}</Link>)}</nav>
         <Button variant="ghost" size="icon" className="xl:hidden" onClick={()=>setOpen(!open)} aria-label={open?"Close menu":"Open menu"}>{open?<X/>:<Menu/>}</Button>
       </div>
